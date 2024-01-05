@@ -1,0 +1,43 @@
+</head>
+
+<body>
+
+<div id="image-container">
+
+<img src="apple.png" alt="Image 1">
+
+<p id="image-text">I see an apple here !!</p>
+
+<div id="hidden-content">
+
+<img src="straw2.jpeg" alt="Image 2">
+
+</div>
+
+</div>
+
+<script>
+
+const imageContainer = document.getElementById('image-container');
+
+const hiddenContent = document.getElementById('hidden-content');
+
+const imageText = document.getElementById('image-text');
+
+imageContainer.addEventListener('mouseover', () => {
+
+hiddenContent.style.display = 'block';
+
+imageText.textContent = 'Hey! I am a strawberry now!!'; });
+
+imageContainer.addEventListener('mouseout', () => {
+
+hiddenContent.style.display = 'none';
+
+imageText.textContent = 'I see an apple here !!'; });
+
+</script>
+
+</body>
+
+</html>

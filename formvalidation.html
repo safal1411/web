@@ -1,0 +1,90 @@
+<html>
+<head><title>FORM VALIDATION</title>
+<style>
+.error
+ {
+color: red;
+        }
+</style></head>
+<body style="background-color:goldenrod;">
+
+<h2 style="color:OFFWHITE;text-align:center";>FORM VALIDATION</h2>
+   <form id="myForm" onsubmit="return validateForm()">
+   <label for="name">Name:</label>
+   <input type="text" id="name" name="name">
+   <span id="nameError" class="error"></span><br> 
+
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <span id="emailError" class="error"></span><br>
+
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <span id="passwordError" class="error"></span><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateName() {
+            var name = document.getElementById("name").value;
+            if (name === "") {
+                document.getElementById("nameError").innerHTML = "Name is required";
+                return false;
+            } else {
+                document.getElementById("nameError").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+           
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "")
+ {
+                document.getElementById("emailError").innerHTML = "Email is required";
+                return false;
+            }
+else if (!emailRegex.test(email))
+{
+                document.getElementById("emailError").innerHTML = "Invalid email address";
+                return false;
+            }
+else
+ {
+                document.getElementById("emailError").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validatePassword()
+ {
+            var password = document.getElementById("password").value;
+            if (password === "")
+{
+                document.getElementById("passwordError").innerHTML = "Password is required";
+                return false;
+            }
+else
+ {
+                document.getElementById("passwordError").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateForm() {
+            var isNameValid = validateName();
+            var isEmailValid = validateEmail();
+            var isPasswordValid = validatePassword();
+
+         
+            return isNameValid && isEmailValid && isPasswordValid;
+        }
+    </script>
+
+</body>
+</html>
